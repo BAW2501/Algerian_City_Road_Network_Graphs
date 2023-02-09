@@ -1,5 +1,4 @@
 import osmnx as ox
-import networkx as nx
 
 # dict of algerian wilayas and their codes
 
@@ -28,6 +27,8 @@ graph = ox.graph_from_place(place_name, network_type='drive')
 ox.plot_graph(ox.project_graph(graph))
 
 
-nx.write_gexf(graph, f"./Graphs/GEXF/{wilaya_number}_{wilaya_name}.gexf")
-nx.write_graphml(graph, f"./Graphs/GraphML/{wilaya_number}_{wilaya_name}.graphml")
-nx.write_gml(graph, f"./Graphs/GML/{wilaya_number}_{wilaya_name}.gml")
+# nx.write_gexf(graph, f"./Graphs/GEXF/{wilaya_number}_{wilaya_name}.gexf")
+# nx.write_graphml(graph, f"./Graphs/GraphML/{wilaya_number}_{wilaya_name}.graphml")
+# nx.write_gml(graph, f"./Graphs/GML/{wilaya_number}_{wilaya_name}.gml")
+ox.save_graphml(graph, f"./Graphs/GraphML/{wilaya_number}_{wilaya_name}.graphml")
+ox.save_graph_xml(graph, f"./Graphs/OSM/{wilaya_number}_{wilaya_name}.osm")
