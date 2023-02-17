@@ -17,15 +17,12 @@ algerian_wilayas = {1: "Adrar", 2: "Chlef", 3: "Laghouat", 4: "Oum El Bouaghi",
                     48: "Relizane"}
 
 
-wilaya_number, wilaya_name = 27, algerian_wilayas[27]
+wilaya_number, wilaya_name = 14, algerian_wilayas[14]
 place_name = f"{wilaya_name}, Algeria"
 graph = ox.graph_from_place(place_name, network_type='drive')
 ox.plot_graph(ox.project_graph(graph))
 
 
-# nx.write_gexf(graph, f"./Graphs/GEXF/{wilaya_number}_{wilaya_name}.gexf")
-# nx.write_graphml(graph, f"./Graphs/GraphML/{wilaya_number}_{wilaya_name}.graphml")
-# nx.write_gml(graph, f"./Graphs/GML/{wilaya_number}_{wilaya_name}.gml")
-ox.save_graphml(
-    graph, f"./Graphs/GraphML/{wilaya_number}_{wilaya_name}.graphml")
+
+ox.save_graphml(graph, f"./Graphs/GraphML/{wilaya_number}_{wilaya_name}.graphml")
 ox.save_graph_xml(graph, f"./Graphs/OSM/{wilaya_number}_{wilaya_name}.osm")
